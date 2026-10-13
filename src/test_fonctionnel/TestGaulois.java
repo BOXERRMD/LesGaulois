@@ -1,7 +1,5 @@
 package test_fonctionnel;
 
-import java.util.Iterator;
-
 import personnages.Druide;
 import personnages.Gaulois;
 import personnages.Romain;
