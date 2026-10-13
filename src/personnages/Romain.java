@@ -9,6 +9,7 @@ public class Romain {
 		super();
 		this.nom = nom;
 		this.force = force;
+		assert this.isInvariantVerified();
 	}
 	
 	
@@ -26,6 +27,10 @@ public class Romain {
 	}
 	
 	public void recevoirCoup(int forceCoup) {
+		
+		assert forceCoup > 0;
+		int force_avant_modification = force;
+		
 		force = force - forceCoup;
 		if (force < 1) {
 			this.parler("J'abandonne !");
@@ -33,5 +38,30 @@ public class Romain {
 		else {
 			this.parler("Aie");
 		}
+		assert this.isInvariantVerified();
+		assert force<force_avant_modification;
 	}
+	
+	private boolean isInvariantVerified() {
+		return force >= 0;
+	}
+	
+	public static void main(String[] args) {
+		Romain minus = new Romain("Minus", -6);
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
